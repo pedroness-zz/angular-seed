@@ -72,6 +72,8 @@ export class AuthComponent implements OnInit {
         this.model.merchant_wallet=this.merchantwallet;
         this.model.notification_settings=this.notificationsettings;
         this.model.bank_info=this.bankinfo;
+        this.model['update_by_email']=false;
+        this.model['tippable']=false;
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';

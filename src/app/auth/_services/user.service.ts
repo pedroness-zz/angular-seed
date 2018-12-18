@@ -26,12 +26,12 @@ export class UserService {
     }
 
     create(user: User) {
-        alert("boom");
+       
         console.log(user);
         console.log("get here");
 
-        
-        return this.http.post('http://d262e7a9.ngrok.io/registration', user, this.jwt()).map((response: Response) => response.json());
+
+        return this.http.post('http://0a622784.ngrok.io/api/registration', user, this.jwt()).map((response: Response) => response.json());
         // return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
     }
 

@@ -8,7 +8,7 @@ export class merchantinfo {
     website: string;
     refund_pin: string;
     update_by_email: string;
-    tippable:string;
+    tippable: string;
     // location:Location[];
 
 }

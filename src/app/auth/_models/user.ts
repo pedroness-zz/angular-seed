@@ -1,4 +1,4 @@
-import {merchantinfo} from "./merchant-info";
+import { merchantinfo } from "./merchant-info";
 export class User {
     id: number;
     email: string;
@@ -6,6 +6,6 @@ export class User {
     password: string;
     firstname: string;
     surname: string;
-    merchantinfoverified:boolean;
+    merchantinfoverified: boolean;
     merchantinfo?: merchantinfo[];
 }

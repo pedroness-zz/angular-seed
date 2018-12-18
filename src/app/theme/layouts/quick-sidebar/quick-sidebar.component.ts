@@ -11,27 +11,27 @@ export class QuickSidebarComponent implements OnInit {
 
     model: any = {};
     merchantinfo: any = {};
-    
+
     locationinfo: any = {};
-    
+
     notificationsettings: any = {};
-    
+
     bankinfo: any = {};
     merchantwallet: any = {};
-    
 
-    
+
+
 
     constructor() {
 
     }
     ngOnInit() {
         // #if not set
-        this.merchantinfo['location_type']='ANYWHERE';   
-        this.merchantwallet['prefered_payment_method']='';
-        this.notificationsettings['notification_mediums']=[];
-        this.notificationsettings['time_to_sms']='0';
-         // #end if not set
+        this.merchantinfo['location_type'] = 'ANYWHERE';
+        this.merchantwallet['prefered_payment_method'] = '';
+        this.notificationsettings['notification_mediums'] = [];
+        this.notificationsettings['time_to_sms'] = '0';
+        // #end if not set
 
     }
 

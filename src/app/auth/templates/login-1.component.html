@@ -85,13 +85,26 @@
 										
 							</ul>	
 						
-							<pre>{{model | json}}</pre>
-								<form style="margin-top:0px;" (ngSubmit)="f.form.valid && signup()" #f="ngForm" class="m-login__form m-form" action="">
+							
+								<form style="margin-top:0px;" (ngSubmit)="f.form.valid && signup(f)" #f="ngForm" class="m-login__form m-form" action="">
 										<ng-template #alertSignup></ng-template>
+
+
+								
+
+										
+										
+
+										
+										
 										<div *ngIf="regform.user_info=='active'">
 												<div class="form-group m-form__group">
-														<input class="form-control m-input" type="text" placeholder="Firstname" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel">
+														<input class="form-control m-input" type="text"  placeholder="Firstname" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" required/>
+														
 													</div>
+
+													
+													
 													<div class="form-group m-form__group">
 														<input class="form-control m-input" type="text" placeholder="Surname" name="surname" [(ngModel)]="model.surname" #surname="ngModel">
 													</div>
@@ -118,18 +131,18 @@
 				
 				
 												<div class="form-group m-form__group">
-														<input class="form-control m-input" type="text" placeholder="Registration" name="registration" [(ngModel)]="model.registration" registration="ngModel">
+														<input class="form-control m-input" type="text" placeholder="Registration" name="registration" [(ngModel)]="model.registration" #registration="ngModel">
 												</div>
 				
 												<div class="form-group m-form__group">
-														<input class="form-control m-input" type="text" placeholder="Vat" name="vat" [(ngModel)]="model.vat" vat="ngModel">
+														<input class="form-control m-input" type="text" placeholder="Vat" name="vat" [(ngModel)]="model.vat" #vat="ngModel">
 												</div>
 												
 												<div class="form-group m-form__group">
 														<label for="v">
 															Currency
 														</label>
-														<select class="form-control m-input" id="currency" name="currency" [(ngModel)]="model.currency" currency="ngModel">
+														<select class="form-control m-input" id="currency" name="currency" [(ngModel)]="model.currency" #currency="ngModel">
 															<option>
 																ZAR
 															</option>
@@ -139,10 +152,10 @@
 														</select>
 													</div>								
 													<div class="form-group m-form__group">
-														<input class="form-control m-input" type="text" placeholder="Website" name="website" [(ngModel)]="model.website" website="ngModel">
+														<input class="form-control m-input" type="text" placeholder="Website" name="website" [(ngModel)]="model.website" #website="ngModel">
 												</div>	
 												<div class="form-group m-form__group">
-														<input class="form-control m-input" type="text" placeholder="Refund Pin" name="refund_pin" [(ngModel)]="model.refund_pin" refund_pin="ngModel">
+														<input class="form-control m-input" type="text" placeholder="Refund Pin" name="refund_pin" [(ngModel)]="model.refund_pin" #refund_pin="ngModel">
 												</div>
 												
 												<div class="m-form__group form-group row">
@@ -153,7 +166,7 @@
 														<div class="col-3">
 												<span class="m-switch m-switch--outline m-switch--success">
 														<label>
-															<input checked="checked" name="refund_pin" [(ngModel)]="model.update_by_email" update_by_email="ngModel" type="checkbox">
+															<input checked="checked" name="refund_pin" [(ngModel)]="model.update_by_email" #update_by_email="ngModel" type="checkbox">
 															<span></span>
 														</label>
 													</span>
@@ -168,7 +181,7 @@
 														<div class="col-3">
 												<span class="m-switch m-switch--outline m-switch--success">
 														<label>
-															<input checked="checked" name="tippable" [(ngModel)]="model.tippable" tippable="ngModel" type="checkbox">
+															<input checked="checked" name="tippable" [(ngModel)]="model.tippable" #tippable="ngModel" type="checkbox">
 															<span></span>
 														</label>
 													</span>
@@ -178,7 +191,7 @@
 														<label for="categories">
 															Categories (+ ctrl for multiple select)
 														</label>
-														<select style=border-style:solid;border-width:1px; class="form-control m-input"  name="categories" [(ngModel)]="model.categories" categories="ngModel" id="categories" multiple="">
+														<select style=border-style:solid;border-width:1px; class="form-control m-input"  name="categories" [(ngModel)]="model.categories" #categories="ngModel" id="categories" multiple="">
 																<option value="Agricultural Co-operatives">Agricultural Co-operatives</option>
 																<option  value="Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation">Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation</option>
 																<option  value="Carpentry Contractors">Carpentry Contractors</option>
@@ -199,7 +212,7 @@
 															<label for="location_type">
 																Location Type
 															</label>
-															<select class="form-control m-input" id="location_type" name="location_type" [(ngModel)]="model.location_type" location_type="ngModel">
+															<select class="form-control m-input" id="location_type" name="location_type" [(ngModel)]="model.location_type" #location_type="ngModel">
 																<option value='fixed'>
 																	FIXED
 																</option>
@@ -212,24 +225,24 @@
 														
 														<div class="form-group m-form__group" *ngIf="merchantinfo.location_type=='fixed'">
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="Street Address" name="street_address" [(ngModel)]="locationinfo.street_address" street_address="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="Street Address" name="street_address" [(ngModel)]="locationinfo.street_address" #street_address="ngModel">
 																</div>
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="City" name="city" [(ngModel)]="locationinfo.city" city="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="City" name="city" [(ngModel)]="locationinfo.city" #city="ngModel">
 																</div>	
 															
 				
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="State/Province" name="state_province" [(ngModel)]="locationinfo.state_province" state_province="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="State/Province" name="state_province" [(ngModel)]="locationinfo.state_province" #state_province="ngModel">
 																</div>	
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="Url" name="url" [(ngModel)]="locationinfo.url" url="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="Url" name="url" [(ngModel)]="locationinfo.url" #url="ngModel">
 																</div>	
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="Co-ordinates" name="co_ordinates" [(ngModel)]="locationinfo.co_ordinates" co_ordinates="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="Co-ordinates" name="co_ordinates" [(ngModel)]="locationinfo.co_ordinates" #co_ordinates="ngModel">
 																</div>	
 																<div class="form-group m-form__group">
-																		<input class="form-control m-input" type="text" placeholder="Postal Code" name="postal_code" [(ngModel)]="locationinfo.postal_code" postal_code="ngModel">
+																		<input class="form-control m-input" type="text" placeholder="Postal Code" name="postal_code" [(ngModel)]="locationinfo.postal_code" #postal_code="ngModel">
 																</div>														
 																																																																																					
 				
@@ -243,17 +256,17 @@
 													</div>
 									
 													<div class="form-group m-form__group">
-															<input class="form-control m-input" type="text" placeholder="Bank Name" name="bank_name" [(ngModel)]="bankinfo.bank_name" bank_name="ngModel">
+															<input class="form-control m-input" type="text" placeholder="Bank Name" name="bank_name" [(ngModel)]="bankinfo.bank_name" #bank_name="ngModel">
 													</div>
 													<div class="form-group m-form__group">
-															<input class="form-control m-input" type="text" placeholder="Account number" name="account_number" [(ngModel)]="bankinfo.account_number" account_number="ngModel">
+															<input class="form-control m-input" type="text" placeholder="Account number" name="account_number" [(ngModel)]="bankinfo.account_number" #account_number="ngModel">
 													</div>
 									
 													<div class="form-group m-form__group">
-															<input class="form-control m-input" type="text" placeholder="Branch Name" name="branch_name" [(ngModel)]="bankinfo.branch_name" branch_name="ngModel">
+															<input class="form-control m-input" type="text" placeholder="Branch Name" name="branch_name" [(ngModel)]="bankinfo.branch_name" #branch_name="ngModel">
 													</div>
 																	<div class="form-group m-form__group">
-															<input class="form-control m-input" type="text" placeholder="Branch Code" name="branch_code" [(ngModel)]="bankinfo.branch_code" branch_code="ngModel">
+															<input class="form-control m-input" type="text" placeholder="Branch Code" name="branch_code" [(ngModel)]="bankinfo.branch_code" #branch_code="ngModel">
 													</div>
 									
 									
@@ -261,7 +274,7 @@
 																			<label for="v">
 																				Account Type
 																			</label>
-																			<select class="form-control m-input" id="account_type" name="account_type" [(ngModel)]="bankinfo.account_type" account_type="ngModel">
+																			<select class="form-control m-input" id="account_type" name="account_type" [(ngModel)]="bankinfo.account_type" #account_type="ngModel">
 																				<option>
 																					current
 																				</option>
@@ -276,7 +289,7 @@
 													</div>
 													<div class="form-group m-form__group">
 													<label>Recieve funds at</label>
-														<select class="form-control m-input" id="prefered_payment_method" name="prefered_payment_method" [(ngModel)]="merchantwallet.prefered_payment_method" prefered_payment_method="ngModel">
+														<select class="form-control m-input" id="prefered_payment_method" name="prefered_payment_method" [(ngModel)]="merchantwallet.prefered_payment_method" #prefered_payment_method="ngModel">
 															<option value="">
 																	Please Select
 															</option>
@@ -290,19 +303,19 @@
 														<BR>
 														<div *ngIf="merchantwallet.prefered_payment_method=='income_accumulation'">
 															<div class="form-group m-form__group">
-																<input class="form-control m-input" type="number" placeholder="Amount" name="amount" [(ngModel)]="merchantwallet.payout_threshold" payout_threshold="ngModel">
+																<input class="form-control m-input" type="number" placeholder="Amount" name="amount" [(ngModel)]="merchantwallet.payout_threshold" #payout_threshold="ngModel">
 															</div>	
 																																				
 														</div>
 														<div *ngIf="merchantwallet.prefered_payment_method=='time_interval_based'">
 																<div class="form-group m-form__group">
 																		
-																		<input class="form-control m-input" type="number" placeholder="Days" name="days" [(ngModel)]="merchantwallet.days" days="ngModel">
+																		<input class="form-control m-input" type="number" placeholder="Days" name="days" [(ngModel)]="merchantwallet.days" #days="ngModel">
 																		
 																</div>	
 																<div class="form-group m-form__group">
 																		
-																		<input class="form-control m-input" type="number" placeholder="Hours" name="hours" [(ngModel)]="merchantwallet.hours" hours="ngModel">
+																		<input class="form-control m-input" type="number" placeholder="Hours" name="hours" [(ngModel)]="merchantwallet.hours" #hours="ngModel">
 																		
 																</div>	
 																																				
@@ -402,7 +415,7 @@
 				Customise your metrics & Visualise your sales and cost data the way you choose with Waxd Analytics Builder 
 				<br><br>
 				Flexible payout options, get paid on time.
-				
+				<pre style="color:beige;">{{model | json}}</pre>				
 		</div>
 	</div>
 </div>
