@@ -1,0 +1,84 @@
+{
+
+
+
+	"email": "string",
+	"mobile": "string",
+	"password": "string",
+	"firstname": "string",
+	"surname": "string",
+	"merchant_info_complete": "boolean",
+	"payout_info_complete": "boolean",
+	"notification_info_complete": "boolean",
+	"payment_methods_complete": "boolean",
+    "fica_info_complete":"boolean",
+    "fica_info":[{"proof_of_address":"boolean",
+    "document_path":"string",
+    "credit_checked":"boolean",
+    "credit_checked_date":"date_time"
+    }
+    ],
+	"payout_info": [{
+		"account_name": "string",
+		"bank_name": "string",
+		"account_type": "string",
+		"account_number": "string",
+		"branch_name": "string",
+		"branch_code": "string",
+		"prefered_payment_method": "TIME_INTERVAL_BASED / INCOME_ACCUMULATION",
+		"time_interval_based": [{
+			"occur_every_qty": "number",
+			"days": "number",
+			"hours": "number"
+		}],
+		"income_accumulation": [{
+			"occur_greater_than": "number"
+		}]
+
+
+	}],
+	"merchant_info": [{
+
+		"name": "string",
+		"registration": "string",
+		"vat": "string",
+		"currency": "string",
+		"website": "string",
+		"refund_pin": "string",
+		"update_by_email": "boolean",
+		"tippable": "boolean",
+		"categories": ["string", "string"],
+		"location_type": "FIXED/ANYWHERE",
+		"location": [{
+			"street_address": "string",
+			"city": "string",
+			"state_province": "string",
+			"url": "string",
+			"co-ordinates": "string",
+			"postal_code": "string"
+		}]
+	}],
+	"notification_info": [{
+		"successful_payment_notify": "boolean",
+		"failed_payment_notify": "boolean",
+		"notification_mediums": ["email", "sms", "web_hook"],
+		"time_to_sms": "number"
+
+	}],
+	"accepted_payment_methods": [{
+		"payment_type": "string"
+	}]
+
+
+
+
+
+
+
+
+
+
+}
+
+	//location is not required when type is ANYWHERE
+	//payment_methods is not required at all```

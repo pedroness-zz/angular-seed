@@ -92,6 +92,8 @@ export function mockBackEndFactory(backend: MockBackend, options: BaseRequestOpt
                 // get new user object from post body
                 let newUser = JSON.parse(connection.request.getBody());
 
+                console.log("WINNNNNNNNNNNNNNNNNNNNNNNNNING")
+                console.log(newUser)
                 // validation
                 let duplicateUser = users.filter(user => {
                     return user.email === newUser.email;

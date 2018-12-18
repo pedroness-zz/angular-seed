@@ -5,24 +5,389 @@
 			<i class="la la-close"></i>
 		</span>
 		<ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+			
 			<li class="nav-item m-tabs__item">
-				<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
-					Messages
+				<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_userdetail" role="tab">
+						<i class="m-menu__link-icon flaticon-user"></i>	Me
 				</a>
 			</li>
 			<li class="nav-item m-tabs__item">
-				<a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
-					Settings
+				<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_merchantinfo" role="tab">
+						<i class="m-menu__link-icon flaticon-business"></i>Business 
 				</a>
 			</li>
 			<li class="nav-item m-tabs__item">
-				<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
-					Logs
+				<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_bankinfo" role="tab">
+						<i class="la la-bank"></i> Bank
 				</a>
 			</li>
+			
+				<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_paymentinfo" role="tab">
+							<i class="flaticon-settings"></i>
+							Payment 
+						</a>
+					</li>
+				<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_notificationsettings" role="tab">
+							<i class="flaticon-interface-1"></i>
+							Notifications 
+						</a>
+					</li>
+					<li class="nav-item m-tabs__item">
+							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
+								<i class="flaticon-interface-7"></i>FICA
+							</a>
+						</li>
+		
+			
+			<li class="nav-item m-tabs__item">
+					<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
+							
+									<i class="fa fa-comment-o"></i> Chat
+								
+					</a>
+				</li>
+
+				<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
+								
+							<i class="flaticon-bell"></i>	
+							Activity Tracker <span class="m-badge m-badge--danger">
+									2
+								</span>
+						</a>
+					</li>
 		</ul>
 		<div class="tab-content">
-			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
+				
+
+
+				<div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_notificationsettings" role="tabpanel">
+						RECIEVED PAYMENT NOTIFICATION SETTINGS
+						<div class="m-form__group form-group row">
+								<div class="col-1"></div>
+								<label class="col-5 col-form-label">
+									Successful Payments
+								</label>
+								<div class="col-3">
+									<span class="m-switch m-switch--outline m-switch--success">
+										<label>
+											<input checked="checked" name="“successful_payment_notify”" [(ngModel)]="notificationsettings.successful_payment_notify"
+												fullname="ngModel" type="checkbox">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+				
+							<div class="m-form__group form-group row">
+									<div class="col-1"></div>
+									<label class="col-5 col-form-label">
+										Failed Payments
+									</label>
+									<div class="col-3">
+										<span class="m-switch m-switch--outline m-switch--success">
+											<label>
+												<input checked="checked" name="failed_payment_notify" [(ngModel)]="notificationsettings.failed_payment_notify"
+													fullname="ngModel" type="checkbox">
+												<span></span>
+											</label>
+										</span>
+									</div>
+								</div>
+				
+				<div class="form-group m-form__group">
+						<label for="categories">
+							Notification Mediums (+ ctrl for multiple select)
+						</label>
+						<select class="form-control m-input" name="notification_mediums" [(ngModel)]="notificationsettings.notification_mediums"
+							fullname="ngModel" id="notification_mediums" multiple="">
+							<option value="email">
+								Email
+							</option>
+							<option value="sms">
+								Sms (charged for)
+							</option>
+							<option value="webhook">
+								Webhook
+							</option>
+						</select>
+					</div>
+
+					
+		
+					<div class="form-group m-form__group" *ngIf="notificationsettings.notification_mediums.indexOf('sms') !== -1 && notificationsettings.notification_mediums.indexOf('email') !== -1" >
+						
+							<div class="m-form__group form-group row">
+								
+										SMS's will only be sent if email not opened in:
+									
+											<div class="form-group m-form__group">
+													<input class="form-control m-input" type="minutes" placeholder="Minutes" name="time_to_sms" [(ngModel)]="notificationsettings.time_to_sms" #email="ngModel" autocomplete="off">
+												</div>
+								
+							</div>
+					
+
+						
+					</div>
+				
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+				<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_userdetail" role="tabpanel">
+						<div class="m--align-center">
+							<div class="m-card-user m-card-user--skin-dark">
+								<div class="m-card-user__pic">
+									<img alt="" class="m--img-rounded m--marginless" src="./assets/app/media/img/users/user4.jpg">
+								</div>
+								<div class="m-card-user__details">
+									<span style="color:rgb(43, 41, 41)" class="m-card-user__name m--font-weight-500">
+										Mark Andre
+									</span>
+									<a style="color:rgb(43, 41, 41)" class="m-card-user__name m--font-weight-500" href="" ng-reflect-href="">
+										mark.andre@gmail.com
+									</a>
+								</div>
+							</div>
+						</div>	
+					
+						<br>
+
+						<div class="form-group m-form__group">
+							<input class="form-control m-input" type="text" placeholder="Firstname" name="firstname" [(ngModel)]="model.firstname" #fullname="ngModel">
+						</div>
+						<div class="form-group m-form__group">
+							<input class="form-control m-input" type="text" placeholder="Surname" name="surname" [(ngModel)]="model.surname" #fullname="ngModel">
+						</div>
+						<div class="form-group m-form__group">
+							<input class="form-control m-input" type="email" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" autocomplete="off">
+						</div>
+						<div class="form-group m-form__group">
+							<input class="form-control m-input" type="tel" placeholder="Mobile 27-(555)-555-5555" name="mobile" [(ngModel)]="model.mobile" #email="ngModel" autocomplete="off">
+						</div>
+
+
+						
+									<div class="row">
+										
+										<div class="col-5">
+											<button class="btn btn-accent m-btn m-btn--air m-btn--custom" type="reset">
+												Save changes
+											</button></div>
+									
+										<div class="col-2"></div>
+									</div>
+								
+
+					</div>
+
+					<div class="tab-pane m-scrollable" id="m_quick_sidebar_tabs_merchantinfo" role="tabpanel">																
+							<div class="form-group m-form__group">
+									<input class="form-control m-input" type="text" placeholder="Company name" name="name" [(ngModel)]="merchantinfo.name" #fullname="ngModel">
+								</div>
+
+
+
+								<div class="form-group m-form__group">
+										<input class="form-control m-input" type="text" placeholder="Registration" name="registration" [(ngModel)]="merchantinfo.registration" fullname="ngModel">
+								</div>
+
+								<div class="form-group m-form__group">
+										<input class="form-control m-input" type="text" placeholder="Vat" name="vat" [(ngModel)]="merchantinfo.vat" fullname="ngModel">
+								</div>
+								
+								<div class="form-group m-form__group">
+										<label for="v">
+											Currency
+										</label>
+										<select class="form-control m-input" id="currency" name="currency" [(ngModel)]="merchantinfo.currency" fullname="ngModel">
+											<option>
+												ZAR
+											</option>
+											<option>
+												AUD
+											</option>
+										</select>
+									</div>								
+									<div class="form-group m-form__group">
+										<input class="form-control m-input" type="text" placeholder="Website" name="website" [(ngModel)]="merchantinfo.website" fullname="ngModel">
+								</div>	
+								<div class="form-group m-form__group">
+										<input class="form-control m-input" type="text" placeholder="Refund Pin" name="refund_pin" [(ngModel)]="merchantinfo.refund_pin" fullname="ngModel">
+								</div>
+								
+								<div class="m-form__group form-group row">
+										<div class="col-1"></div>
+										<label class="col-5 col-form-label">
+												Update By Email
+										</label>
+										<div class="col-3">
+								<span class="m-switch m-switch--outline m-switch--success">
+										<label>
+											<input checked="checked" name="refund_pin" [(ngModel)]="merchantinfo.update_by_email" fullname="ngModel" type="checkbox">
+											<span></span>
+										</label>
+									</span>
+									</div>
+								</div>
+
+								<div class="m-form__group form-group row">
+										<div class="col-1"></div>
+										<label class="col-5 col-form-label">
+												Tippable
+										</label>
+										<div class="col-3">
+								<span class="m-switch m-switch--outline m-switch--success">
+										<label>
+											<input checked="checked" name="tippable" [(ngModel)]="merchantinfo.tippable" fullname="ngModel" type="checkbox">
+											<span></span>
+										</label>
+									</span>
+									</div>
+								</div>
+								<div class="form-group m-form__group">
+										<label for="categories">
+											Categories (+ ctrl for multiple select)
+										</label>
+										<select class="form-control m-input"  name="categories" [(ngModel)]="merchantinfo.categories" fullname="ngModel" id="categories" multiple="">
+												<option value="Agricultural Co-operatives">Agricultural Co-operatives</option>
+												<option  value="Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation">Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation</option>
+												<option  value="Carpentry Contractors">Carpentry Contractors</option>
+												<option  value="Contractors - Concrete Work">Contractors - Concrete Work</option>
+												<option  value="Contractors - Special Trade, Not Elsewhere Classified">Contractors - Special Trade, Not Elsewhere Classified</option>
+												<option  value="Electrical Contractors">Electrical Contractors</option>
+												<option  value="General Contractors-Residential and Commercial">General Contractors-Residential and Commercial</option>
+												<option  value="Home Decor">Home Decor</option>
+												<option  value="Horticultural Services, Landscaping Services">Horticultural Services, Landscaping Services</option>
+												<option  value="Insulation - Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors">Insulation - Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors</option>
+												<option  value="Miscellaneous Publishing and Printing">Miscellaneous Publishing and Printing</option>
+												<option  value="Roofing - Contractors, Sheet Metal Work - Contractors, Siding - Contractors">Roofing - Contractors, Sheet Metal Work - Contractors, Siding - Contractors</option>
+												<option  value="Specialty Cleaning, Polishing, and Sanitation Preparations">Specialty Cleaning, Polishing, and Sanitation Preparations</option><option  value="Typesetting, Plate Making, &amp; Related Services">Typesetting, Plate Making, &amp; Related Services</option><option  value="Veterinary Services">Veterinary Services</option>
+												
+										</select>
+									</div>
+									<div class="form-group m-form__group">
+											<label for="location_type">
+												Location Type
+											</label>
+											<select class="form-control m-input" id="location_type" name="location_type" [(ngModel)]="merchantinfo.location_type" fullname="ngModel">
+												<option>
+													FIXED
+												</option>
+												<option>
+													ANYWHERE
+												</option>
+											</select>
+										</div>
+
+										
+										<div class="form-group m-form__group" *ngIf="merchantinfo.location_type=='FIXED'">
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="Street Address" name="street_address" [(ngModel)]="locationinfo.street_address" fullname="ngModel">
+												</div>
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="City" name="city" [(ngModel)]="locationinfo.city" fullname="ngModel">
+												</div>	
+											
+
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="State/Province" name="state_province" [(ngModel)]="locationinfo.state_province" fullname="ngModel">
+												</div>	
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="Url" name="url" [(ngModel)]="locationinfo.url" fullname="ngModel">
+												</div>	
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="Co-ordinates" name="co_ordinates" [(ngModel)]="locationinfo.co_ordinates" fullname="ngModel">
+												</div>	
+												<div class="form-group m-form__group">
+														<input class="form-control m-input" type="text" placeholder="Postal Code" name="postal_code" [(ngModel)]="locationinfo.postal_code" fullname="ngModel">
+												</div>														
+																																																																																	
+
+										</div>											
+																					
+
+
+
+
+						
+									<div class="row">
+										
+										<div class="col-5">
+											<button class="btn btn-accent m-btn m-btn--air m-btn--custom" type="reset">
+												Save changes
+											</button></div>
+										
+										<div class="col-2"></div>
+									</div>
+								</div>
+		
+								
+								<div class="tab-pane m-scrollable" id="m_quick_sidebar_tabs_bankinfo" role="tabpanel">																
+										<div class="form-group m-form__group">
+												<input class="form-control m-input" type="text" placeholder="Account name" name="account_name" [(ngModel)]="bankinfo.account_name" #fullname="ngModel">
+											</div>
+							
+											<div class="form-group m-form__group">
+													<input class="form-control m-input" type="text" placeholder="Bank Name" name="bank_name" [(ngModel)]="bankinfo.bank_name" fullname="ngModel">
+											</div>
+											<div class="form-group m-form__group">
+													<input class="form-control m-input" type="text" placeholder="Account number" name="account_number" [(ngModel)]="bankinfo.account_number" fullname="ngModel">
+											</div>
+							
+											<div class="form-group m-form__group">
+													<input class="form-control m-input" type="text" placeholder="Branch Name" name="branch_name" [(ngModel)]="bankinfo.branch_name" fullname="ngModel">
+											</div>
+															<div class="form-group m-form__group">
+													<input class="form-control m-input" type="text" placeholder="Branch Code" name="branch_code" [(ngModel)]="bankinfo.branch_code" fullname="ngModel">
+											</div>
+							
+							
+										  <div class="form-group m-form__group">
+																	<label for="v">
+																		Account Type
+																	</label>
+																	<select class="form-control m-input" id="account_type" name="account_type" [(ngModel)]="bankinfo.account_type" fullname="ngModel">
+																		<option>
+																			current
+																		</option>
+																		<option>
+																			savings
+																		</option>
+																	</select>
+										</div>	
+										<div class="row">
+																	<div class="col-1"></div>
+																	<div class="col-5">
+																		<button data-toggle="tab" href="#m_quick_sidebar_tabs_paymentinfo"  class="btn btn-accent m-btn m-btn--air m-btn--custom" >
+																			Confirm Payment Options to Save
+																		</button></div>
+																
+																	<div class="col-2"></div>
+																</div>
+															
+							
+							</div>								
+								
+			
+			<div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
 				<div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
 					<div class="m-messenger__messages">
 						<div class="m-messenger__message m-messenger__message--in">
@@ -177,150 +542,72 @@
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_settings" role="tabpanel">
-				<div class="m-list-settings">
-					<div class="m-list-settings__group">
-						<div class="m-list-settings__heading">
-							General Settings
+
+
+			<div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_paymentinfo" role="tabpanel">
+					<div class="m-list-settings">
+						<div class="m-list-settings__group">
+							<div class="m-list-settings__heading">
+								Available Payout Options			
+							</div>
+							<div class="form-group m-form__group">
+							<label>Recieve funds at</label>
+								<select class="form-control m-input" id="prefered_payment_method" name="prefered_payment_method" [(ngModel)]="merchantwallet.prefered_payment_method" fullname="ngModel">
+									<option value="">
+											Please Select
+									</option>
+									<option value="time_interval_based">
+										scheduled time intervals :
+									</option>
+									<option value="income_accumulation">
+										specified accumulation payout threshold :
+									</option>
+								</select>
+								<BR>
+								<div *ngIf="merchantwallet.prefered_payment_method=='income_accumulation'">
+									<div class="form-group m-form__group">
+										<input class="form-control m-input" type="text" placeholder="Amount" name="amount" [(ngModel)]="merchantwallet.payout_threshold" fullname="ngModel">
+									</div>	
+									<div class="row">
+										
+											<div class="col-5">
+												<button class="btn btn-accent m-btn m-btn--air m-btn--custom" type="reset">
+													Save changes
+												</button></div>
+										
+											<div class="col-2"></div>
+										</div>																						
+								</div>
+								<div *ngIf="merchantwallet.prefered_payment_method=='time_interval_based'">
+										<div class="form-group m-form__group">
+												
+												<input class="form-control m-input" type="number" placeholder="Days" name="days" [(ngModel)]="merchantwallet.days" fullname="ngModel">
+												
+										</div>	
+										<div class="form-group m-form__group">
+												
+												<input class="form-control m-input" type="number" placeholder="Hours" name="hours" [(ngModel)]="merchantwallet.hours" fullname="ngModel">
+												
+										</div>	
+										<div class="row">
+										
+												<div class="col-5">
+													<button class="btn btn-accent m-btn m-btn--air m-btn--custom" type="reset">
+														Save changes
+													</button></div>
+											
+												<div class="col-2"></div>
+											</div>																						
+								</div>									
+							
+							</div>	
+
 						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Email Notifications
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" checked="checked" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Site Tracking
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								SMS Alerts
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Backup Storage
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Audit Logs
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" checked="checked" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-					</div>
-					<div class="m-list-settings__group">
-						<div class="m-list-settings__heading">
-							System Settings
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								System Logs
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Error Reporting
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Applications Logs
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Backup Servers
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" checked="checked" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-						<div class="m-list-settings__item">
-							<span class="m-list-settings__item-label">
-								Audit Logs
-							</span>
-							<span class="m-list-settings__item-control">
-								<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-									<label>
-										<input type="checkbox" name="">
-										<span></span>
-									</label>
-								</span>
-							</span>
-						</div>
-					</div>
-				</div>
+					</div>	
 			</div>
+			
+			
+			
 			<div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_logs" role="tabpanel">
 				<div class="m-list-timeline">
 					<div class="m-list-timeline__group">

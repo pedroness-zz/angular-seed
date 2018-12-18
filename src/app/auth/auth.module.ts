@@ -31,10 +31,10 @@ import { fakeBackendProvider } from "./_helpers/index";
         AlertService,
         AuthenticationService,
         UserService,
-        // api backend simulation
-        fakeBackendProvider,
-        MockBackend,
-        BaseRequestOptions,
+        // comment out below to stop api backend simulation
+        // fakeBackendProvider,
+        // MockBackend,
+        // BaseRequestOptions,
     ],
     entryComponents: [AlertComponent]
 })
