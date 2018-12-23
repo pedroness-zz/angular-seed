@@ -166,7 +166,7 @@
 														<div class="col-3">
 												<span class="m-switch m-switch--outline m-switch--success">
 														<label>
-															<input checked="checked" name="refund_pin" [(ngModel)]="model.update_by_email" #update_by_email="ngModel" type="checkbox">
+															<input checked="checked" name="update_by_email" [(ngModel)]="model.update_by_email" #update_by_email="ngModel" type="checkbox">
 															<span></span>
 														</label>
 													</span>
@@ -415,7 +415,9 @@
 				Customise your metrics & Visualise your sales and cost data the way you choose with Waxd Analytics Builder 
 				<br><br>
 				Flexible payout options, get paid on time.
-				<pre style="color:beige;">{{model | json}}</pre>				
+				<pre style="color:beige;">{{model | json}}
+				
+				{{regform | json}}</pre>				
 		</div>
 	</div>
 </div>

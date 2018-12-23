@@ -8,8 +8,8 @@ export class UserService {
     constructor(private http: Http) {
     }
 
-    verify() {
-        return this.http.get('/api/verify', this.jwt()).map((response: Response) => response.json());
+    verify() {        
+        return this.http.post('http://0a622784.ngrok.io/api/verify', this.jwt()).map((response: Response) => response.json());
     }
 
     forgotPassword(email: string) {
@@ -48,6 +48,7 @@ export class UserService {
     private jwt() {
         // create authorization header with jwt token
         console.log("pvt jwt ran");
+        console.log()
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
             let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });

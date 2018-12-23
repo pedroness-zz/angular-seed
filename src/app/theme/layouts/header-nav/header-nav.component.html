@@ -945,10 +945,11 @@
 												</div>
 												<div class="m-card-user__details">
 													<span class="m-card-user__name m--font-weight-500">
-														Mark Andre
+														
+														{{currentUser['firstname']}} {{currentUser['lastname']}}
 													</span>
 													<a href="" class="m-card-user__email m--font-weight-300 m-link">
-														mark.andre@gmail.com
+														{{currentUser['email']}}
 													</a>
 												</div>
 											</div>
@@ -1027,9 +1028,11 @@
 								<a href="#" class="m-nav__link m-dropdown__toggle">
 									<span class="m-nav__link-icon">
 										<i class="flaticon-grid-menu"></i><span class="m-badge m-badge--danger">
-												2
+												2 
 											</span>
 									</span>
+
+									
 								</a>
 							</li>
 						</ul>

@@ -159,10 +159,10 @@
 								</div>
 								<div class="m-card-user__details">
 									<span style="color:rgb(43, 41, 41)" class="m-card-user__name m--font-weight-500">
-										Mark Andre
+										<!-- {{currentUser.firstname}} {{currentUser.lastname}} -->
 									</span>
 									<a style="color:rgb(43, 41, 41)" class="m-card-user__name m--font-weight-500" href="" ng-reflect-href="">
-										mark.andre@gmail.com
+										<!-- {{currentUser.email}} -->
 									</a>
 								</div>
 							</div>
@@ -200,24 +200,24 @@
 
 					<div class="tab-pane m-scrollable" id="m_quick_sidebar_tabs_merchantinfo" role="tabpanel">																
 							<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Company name" name="name" [(ngModel)]="merchantinfo.name" #fullname="ngModel">
+									<input class="form-control m-input" type="text" placeholder="Company name" name="name" [(ngModel)]="model.name" #fullname="ngModel">
 								</div>
 
 
 
 								<div class="form-group m-form__group">
-										<input class="form-control m-input" type="text" placeholder="Registration" name="registration" [(ngModel)]="merchantinfo.registration" fullname="ngModel">
+										<input class="form-control m-input" type="text" placeholder="Registration" name="registration" [(ngModel)]="model.registration" fullname="ngModel">
 								</div>
 
 								<div class="form-group m-form__group">
-										<input class="form-control m-input" type="text" placeholder="Vat" name="vat" [(ngModel)]="merchantinfo.vat" fullname="ngModel">
+										<input class="form-control m-input" type="text" placeholder="Vat" name="vat" [(ngModel)]="model.vat" fullname="ngModel">
 								</div>
 								
 								<div class="form-group m-form__group">
 										<label for="v">
 											Currency
 										</label>
-										<select class="form-control m-input" id="currency" name="currency" [(ngModel)]="merchantinfo.currency" fullname="ngModel">
+										<select class="form-control m-input" id="currency" name="currency" [(ngModel)]="model.currency" fullname="ngModel">
 											<option>
 												ZAR
 											</option>
@@ -227,10 +227,10 @@
 										</select>
 									</div>								
 									<div class="form-group m-form__group">
-										<input class="form-control m-input" type="text" placeholder="Website" name="website" [(ngModel)]="merchantinfo.website" fullname="ngModel">
+										<input class="form-control m-input" type="text" placeholder="Website" name="website" [(ngModel)]="model.website" fullname="ngModel">
 								</div>	
 								<div class="form-group m-form__group">
-										<input class="form-control m-input" type="text" placeholder="Refund Pin" name="refund_pin" [(ngModel)]="merchantinfo.refund_pin" fullname="ngModel">
+										<input class="form-control m-input" type="text" placeholder="Refund Pin" name="refund_pin" [(ngModel)]="model.refund_pin" fullname="ngModel">
 								</div>
 								
 								<div class="m-form__group form-group row">
@@ -241,7 +241,7 @@
 										<div class="col-3">
 								<span class="m-switch m-switch--outline m-switch--success">
 										<label>
-											<input checked="checked" name="refund_pin" [(ngModel)]="merchantinfo.update_by_email" fullname="ngModel" type="checkbox">
+											<input checked="checked" name="refund_pin" [(ngModel)]="model.update_by_email" fullname="ngModel" type="checkbox">
 											<span></span>
 										</label>
 									</span>
@@ -256,7 +256,7 @@
 										<div class="col-3">
 								<span class="m-switch m-switch--outline m-switch--success">
 										<label>
-											<input checked="checked" name="tippable" [(ngModel)]="merchantinfo.tippable" fullname="ngModel" type="checkbox">
+											<input checked="checked" name="tippable" [(ngModel)]="model.tippable" fullname="ngModel" type="checkbox">
 											<span></span>
 										</label>
 									</span>
@@ -266,7 +266,7 @@
 										<label for="categories">
 											Categories (+ ctrl for multiple select)
 										</label>
-										<select class="form-control m-input"  name="categories" [(ngModel)]="merchantinfo.categories" fullname="ngModel" id="categories" multiple="">
+										<select class="form-control m-input"  name="categories" [(ngModel)]="model.categories" fullname="ngModel" id="categories" multiple="">
 												<option value="Agricultural Co-operatives">Agricultural Co-operatives</option>
 												<option  value="Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation">Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation</option>
 												<option  value="Carpentry Contractors">Carpentry Contractors</option>
@@ -287,7 +287,7 @@
 											<label for="location_type">
 												Location Type
 											</label>
-											<select class="form-control m-input" id="location_type" name="location_type" [(ngModel)]="merchantinfo.location_type" fullname="ngModel">
+											<select class="form-control m-input" id="location_type" name="location_type" [(ngModel)]="model.location_type" fullname="ngModel">
 												<option>
 													FIXED
 												</option>
@@ -298,7 +298,7 @@
 										</div>
 
 										
-										<div class="form-group m-form__group" *ngIf="merchantinfo.location_type=='FIXED'">
+										<div class="form-group m-form__group" *ngIf="model.location_type=='FIXED'">
 												<div class="form-group m-form__group">
 														<input class="form-control m-input" type="text" placeholder="Street Address" name="street_address" [(ngModel)]="locationinfo.street_address" fullname="ngModel">
 												</div>

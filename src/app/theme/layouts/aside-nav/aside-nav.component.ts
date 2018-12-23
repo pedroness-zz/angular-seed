@@ -9,12 +9,14 @@ declare let mLayout: any;
 })
 export class AsideNavComponent implements OnInit, AfterViewInit {
 
-
+    currentUser: any = {};
+ 
+    
     constructor() {
 
     }
     ngOnInit() {
-
+        this.currentUser=JSON.parse(localStorage.getItem('currentUser'));
     }
     ngAfterViewInit() {
 
