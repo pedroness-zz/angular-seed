@@ -8,39 +8,39 @@ export class UserService {
     constructor(private http: Http) {
     }
 
-    verify() {        
-        return this.http.post('http://0a622784.ngrok.io/api/verify', this.jwt()).map((response: Response) => response.json());
+    verify() {
+        return this.http.post('http://146.148.12.248:3002/api/verify', this.jwt()).map((response: Response) => response.json());
     }
 
     forgotPassword(email: string) {
-        return this.http.post('/api/forgot-password', JSON.stringify({ email }), this.jwt()).map((response: Response) => response.json());
+        return this.http.post('http://146.148.12.248:3002/api/forgot-password', JSON.stringify({ email }), this.jwt()).map((response: Response) => response.json());
     }
 
     getAll() {
 
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('http://146.148.12.248:3002/api/users', this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('http://146.148.12.248:3002/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
-       
+
         console.log(user);
         console.log("get here");
 
 
-        return this.http.post('http://0a622784.ngrok.io/api/registration', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('http://146.148.12.248:3002/api/registration', user, this.jwt()).map((response: Response) => response.json());
         // return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        return this.http.put('http://146.148.12.248:3002/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete('http://146.148.12.248:3002/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

@@ -17,13 +17,13 @@ import { Helpers } from "../helpers";
 export class AuthComponent implements OnInit {
     model: any = {};
     merchantinfo: any = {};
-    locationinfo: any = {};  
-    notificationsettings: any = {}; 
+    locationinfo: any = {};
+    notificationsettings: any = {};
     bankinfo: any = {};
     merchantwallet: any = {};
     regform: any = {};
-  
-    
+
+
     loading = false;
     returnUrl: string;
 
@@ -42,23 +42,23 @@ export class AuthComponent implements OnInit {
 
     ngOnInit() {
 
-        this.model['location_type']='anywhere';   
-        this.merchantwallet['prefered_payment_method']='';
-        this.notificationsettings['notification_mediums']=["email"];
-        this.notificationsettings['time_to_sms']=0;
-        this.notificationsettings['successful_payment_notify']=true;
-        this.notificationsettings['failed_payment_notify']=true;
-       
+        this.model['location_type'] = 'anywhere';
+        this.merchantwallet['prefered_payment_method'] = '';
+        this.notificationsettings['notification_mediums'] = ["email"];
+        this.notificationsettings['time_to_sms'] = 0;
+        this.notificationsettings['successful_payment_notify'] = true;
+        this.notificationsettings['failed_payment_notify'] = true;
+
 
         this.regform = {
-            user_info:"active",
-            merchant_info:"",
-            bank_payout_settings:"",
-            errors:{
-                user_info:[],
-                merchant_info:[],
-                bank_payout_settings:[]
-            }        
+            user_info: "active",
+            merchant_info: "",
+            bank_payout_settings: "",
+            errors: {
+                user_info: [],
+                merchant_info: [],
+                bank_payout_settings: []
+            }
         };
 
         this.model.currency = "ZAR";
@@ -68,14 +68,14 @@ export class AuthComponent implements OnInit {
         this.model.credit_checked_date = "2018-12-14T06:12:31.015Z";
 
         // this.model.merchantinfo=this.merchantinfo;
-        this.merchantwallet['hours']=0;
-        this.merchantwallet['days']=0;
-        this.model.merchant_wallet=this.merchantwallet;
-        this.model.notification_settings=this.notificationsettings;
-        this.model.bank_info=this.bankinfo;
-        this.model['update_by_email']=false;
-        this.model['tippable']=false;
-        
+        this.merchantwallet['hours'] = 0;
+        this.merchantwallet['days'] = 0;
+        this.model.merchant_wallet = this.merchantwallet;
+        this.model.notification_settings = this.notificationsettings;
+        this.model.bank_info = this.bankinfo;
+        this.model['update_by_email'] = false;
+        this.model['tippable'] = false;
+
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
@@ -90,11 +90,11 @@ export class AuthComponent implements OnInit {
 
     tabSwitch(activetab) {
 
-        this.regform['user_info']='';
-        this.regform['merchant_info']='';
-        this.regform['bank_payout_settings']='';
-        this.regform[activetab]='active';
-         
+        this.regform['user_info'] = '';
+        this.regform['merchant_info'] = '';
+        this.regform['bank_payout_settings'] = '';
+        this.regform[activetab] = 'active';
+
     }
     signin() {
         this.loading = true;
